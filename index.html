@@ -463,12 +463,13 @@ body.hl-note .obj-block{opacity:.18}
 }
 .colophon__t{font-family:var(--mono); font-size:10.5px; letter-spacing:.22em; color:var(--contour-hi)}
 .colophon p{
-  max-width:34em; font-family:var(--mincho); font-weight:500;
+  /* 奥付は、枠（.notice）や画面の幅いっぱいまで使う。幅の上限を付けると、枠の途中で早めに折れて見える */
+  font-family:var(--mincho); font-weight:500;
   font-size:14.5px; line-height:2.05; color:var(--ink-warm); margin:18px 0 0;
 }
 .colophon .fine{
   font-family:var(--mono); font-size:10.5px; line-height:2.4; letter-spacing:.06em;
-  color:var(--contour); margin-top:26px; max-width:44em;
+  color:var(--contour); margin-top:26px;
 }
 
 /* ============================================================
@@ -2550,7 +2551,7 @@ body.hl-note .obj-block{opacity:.18}
     <p class="fine">
       本文中の <span class="src" style="margin-left:0">出典</span> は参照元、<span class="src src--est" style="margin-left:0">推定・諸説あり</span> は裏付けが十分でない記述を示す。第2部では同じ記法を踏査の有無にも使っていて、実線＝実際に立った場所、破線＝行っていない場所。<br>
       標高・比率は概数。人口・面積・森林率は新見市公式の数値による。<br>
-      背景の等高線は新見市の実地形ではなく、プログラムで生成した架空の地形である。
+      背景の等高線は新見市の実地形ではなく、架空の地形である。
     </p>
   </footer>
 
@@ -2571,12 +2572,10 @@ body.hl-note .obj-block{opacity:.18}
   if (!window.Intl || !Intl.Segmenter) return;
   var seg = new Intl.Segmenter('ja', { granularity: 'word' });
   var SEL = 'p, h2, h3, li, .dek, .zone__t, .place__t, .key__desc, .legend__note, figcaption > span';
-  Array.prototype.forEach.call(document.querySelectorAll(SEL), function(el){
-    if (el.closest('svg') || el.closest('.hero__lead')) return;
-    var last = el.lastChild;
-    while (last && last.nodeType === 3 && !last.textContent.trim()) last = last.previousSibling;
-    if (!last || last.nodeType !== 3) return;               /* 末尾が札などの要素なら触らない */
-    var s = last.textContent.replace(/\s+$/, '');
+  /* 文の終わり（段落の最後と、改行 br の直前）にある文字の並びの、最後の語を塊にする */
+  function wrapEnd(node){
+    var s = node.textContent.replace(/\s+$/, '');
+    if (!s) return;
     var parts = Array.from(seg.segment(s)), k = parts.length - 1;
     while (k > 0 && !parts[k].isWordLike) k--;
     var start = parts[k].index;
@@ -2588,8 +2587,18 @@ body.hl-note .obj-block{opacity:.18}
     var span = document.createElement('span');
     span.className = 'nw';
     span.textContent = s.slice(start);
-    last.textContent = s.slice(0, start);
-    el.insertBefore(span, last.nextSibling);
+    node.textContent = s.slice(0, start);
+    node.parentNode.insertBefore(span, node.nextSibling);
+  }
+  function prevText(n){
+    while (n && n.nodeType === 3 && !n.textContent.trim()) n = n.previousSibling;
+    return n && n.nodeType === 3 ? n : null;              /* 直前が札などの要素なら触らない */
+  }
+  Array.prototype.forEach.call(document.querySelectorAll(SEL), function(el){
+    if (el.closest('svg') || el.closest('.hero__lead')) return;
+    var ends = [prevText(el.lastChild)];
+    Array.prototype.forEach.call(el.querySelectorAll(':scope > br'), function(br){ ends.push(prevText(br.previousSibling)); });
+    ends.forEach(function(n){ if (n) wrapEnd(n); });
   });
 })();
 

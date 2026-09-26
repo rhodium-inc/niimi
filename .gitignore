@@ -5,3 +5,6 @@ index.before-figremoval.html
 
 # 写真の元データと作業用の縮小版。公開するのは photo/ の方だけ
 image/
+
+# ブラウザ確認の道具が作る記録。公開しない
+.playwright-mcp/
