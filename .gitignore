@@ -1,0 +1,7 @@
+# 作業用。公開しない
+memo/
+mockups/
+index.before-figremoval.html
+
+# 写真の元データと作業用の縮小版。公開するのは photo/ の方だけ
+image/
