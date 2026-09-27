@@ -416,6 +416,13 @@ body.hl-note .obj-block{opacity:.18}
   font-family:var(--mincho); font-weight:500;
   font-size:14px; line-height:1.95; color:var(--ink-warm);
 }
+/* 場所の一覧の中の区切り（節の見出しより小さく、場所の名前より大きく） */
+.places__h{
+  margin:44px 0 14px;
+  font-size:19px; font-weight:600; letter-spacing:.06em; line-height:1.5;
+}
+.places__h i{display:inline-block; width:22px; height:1px; margin-right:12px; vertical-align:middle; background:var(--iron); font-style:normal}
+.place__n + .place__note{margin-top:6px}
 .place--un .place__n{color:rgba(230,226,216,.5)}
 .place--un .place__t{color:rgba(230,226,216,.36)}
 
@@ -2161,7 +2168,7 @@ body.hl-note .obj-block{opacity:.18}
 
           <aside class="note">
             <div class="note__head">野帳</div>
-            <p>駅を降りてまっすぐ行くと高梁川がある、わたって国道を右に歩くとプラザがある。そこで帽子を買って今も使っている。</p>
+            <p>駅を降りてまっすぐ行くと高梁川がある、わたって国道を右に歩くとミカミパレットがある。そこで帽子を買って今も使っている。</p>
             <p>国道沿いはそれなりに栄えている。タイムという喫茶店？レストラン？やラーメン屋も美味しかった記憶がある。</p>
             <p>ただデータの示す通りだが、友人も人口が減っていると言っていた。</p>
             <p>行けばなかなか面白いところなのだが。</p>
@@ -2320,6 +2327,46 @@ body.hl-note .obj-block{opacity:.18}
             <div>
               <h3 class="place__n">たまがきと祐清像 <small>新見庄</small></h3>
               <p class="place__t">新見駅前の広場、駅を出てすぐ左手に立っている。五百年前にこの土地にいた二人の像で、友人の迎えを待つあいだ、名前を知らないままその近くに立っていた。この街でいちばん古い物語は、資料館ではなく駅前にある。</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 立ち寄った店。調べた説明は付けず、そのときのことだけ書く -->
+        <h3 class="places__h"><i></i>立ち寄ったところ</h3>
+        <div class="places">
+          <div class="place">
+            <span class="place__m" aria-hidden="true"></span>
+            <div>
+              <h3 class="place__n">ミカミパレット新見店</h3>
+              <p class="place__note">電車内に帽子を置き忘れ、ここで帽子を購入。</p>
+            </div>
+          </div>
+          <div class="place">
+            <span class="place__m" aria-hidden="true"></span>
+            <div>
+              <h3 class="place__n">REST HOUSE タイム インター店</h3>
+              <p class="place__note">テイクアウトでサンドイッチ？のようなものを包んでもらって、帰りの新幹線で食べた思い出。</p>
+            </div>
+          </div>
+          <div class="place">
+            <span class="place__m" aria-hidden="true"></span>
+            <div>
+              <h3 class="place__n">サンパーク 新見</h3>
+              <p class="place__note">ここでバーベキューの食材を調達。</p>
+            </div>
+          </div>
+          <div class="place">
+            <span class="place__m" aria-hidden="true"></span>
+            <div>
+              <h3 class="place__n">標</h3>
+              <p class="place__note">ここでお茶しながら友人の迎えを待った。</p>
+            </div>
+          </div>
+          <div class="place">
+            <span class="place__m" aria-hidden="true"></span>
+            <div>
+              <h3 class="place__n">さつき屋菓子舗</h3>
+              <p class="place__note">ここで土産物を購入。</p>
             </div>
           </div>
           <div class="place">
