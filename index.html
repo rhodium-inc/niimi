@@ -681,7 +681,7 @@ body.hl-note .obj-block{opacity:.18}
      線を引く演出（描画アニメーション）は入れない。読む対象だから */
   .js .fig,.js .section-fig{opacity:0; transition:opacity .8s ease}
   .js .fig.in,.js .section-fig.in{opacity:1}
-  /* 動く図（図1〜図7）は、再生そのものが現れ方になるので薄く出す演出を外す。
+  /* 動く図（図1〜図8）は、再生そのものが現れ方になるので薄く出す演出を外す。
      重ねると、再生の始めに図全体を毎コマ半透明で描き直すことになりコマが落ちる */
   .js .fig.fp,.js .section-fig.fp{opacity:1; transition:none}
 
@@ -700,7 +700,7 @@ body.hl-note .obj-block{opacity:.18}
 }
 
 /* ============================================================
-   動く図（位置図・図1〜図7）
+   動く図（位置図・図1〜図8）
    図はページの流れの中に置いたまま、画面に入ったら一度だけ再生する。
    図の下に、再生の操作と「どこまで進んだか」の目盛りを置く。
    目盛りは高度計と同じく計器の書式（細い罫・等幅・朱の点）。
@@ -2511,53 +2511,72 @@ body.hl-note .obj-block{opacity:.18}
           <figcaption class="figcap"><span><b>新見市マスコットキャラクター にーみん</b></span><span>画像：新見市</span></figcaption>
         </figure>
 
-        <figure class="fig">
+        <figure class="fig fp" id="f8r">
           <svg viewBox="0 0 800 230" role="img" aria-label="新見市のマスコットキャラクター「にーみん」の設定を分解した模式図。カルスト台地のピオーネ、山の草地の千屋牛、阿哲の名を持つアテツマンサクという三つの要素が、一体のキャラクターに統合されている。">
             <g stroke="#5B7B82" stroke-width="1" fill="#0E1418">
-              <rect x="20" y="26" width="196" height="52"/>
-              <rect x="20" y="94" width="196" height="52"/>
-              <rect x="20" y="162" width="196" height="52"/>
+              <rect data-lit="0.3" x="20" y="26" width="196" height="52"/>
+              <rect data-lit="0.55" x="20" y="94" width="196" height="52"/>
+              <rect data-lit="0.8" x="20" y="162" width="196" height="52"/>
             </g>
             <g class="s-key svg-fine" font-size="14">
-              <text x="36" y="50">ピオーネ</text>
-              <text x="36" y="118">千屋牛</text>
-              <text x="36" y="186">アテツマンサク</text>
+              <text data-lit="0.3" x="36" y="50">ピオーネ</text>
+              <text data-lit="0.55" x="36" y="118">千屋牛</text>
+              <text data-lit="0.8" x="36" y="186">アテツマンサク</text>
             </g>
             <g class="s-t svg-fine" font-size="11">
-              <text x="36" y="68" fill="#8C9E6B">石灰岩のカルスト台地から</text>
-              <text x="36" y="136" fill="#8C9E6B">山の草地から</text>
-              <text x="36" y="204" fill="#8C9E6B">「阿哲」の名を持つ植物</text>
+              <text data-lit="0.3" x="36" y="68" fill="#8C9E6B">石灰岩のカルスト台地から</text>
+              <text data-lit="0.55" x="36" y="136" fill="#8C9E6B">山の草地から</text>
+              <text data-lit="0.8" x="36" y="204" fill="#8C9E6B">「阿哲」の名を持つ植物</text>
             </g>
 
             <g stroke="#E0794C" stroke-width="1.3" fill="none">
-              <path d="M216,52 C300,52 320,96 384,110"/>
-              <path d="M216,120 C300,120 330,116 384,116"/>
-              <path d="M216,188 C300,188 320,140 384,124"/>
-              <path d="M384,117 L370,110 M384,117 L370,124"/>
+              <path data-draw="0.5,1.5" d="M216,52 C306,52 314,118 386,118"/>
+              <path data-draw="0.75,1.65" d="M216,120 C300,120 330,118 386,118"/>
+              <path data-draw="1.0,1.8" d="M216,188 C306,188 314,118 386,118"/>
             </g>
+            <path data-show="1.75" d="M383,112 L395,118 L383,124 Z" fill="#E0794C"/>
 
-            <rect x="396" y="72" width="240" height="92" fill="#B4552F" opacity=".12" stroke="#E0794C" stroke-width="1.4"/>
+            <rect data-lit="1.75" x="396" y="72" width="240" height="92" fill="#B4552F" opacity=".12" stroke="#E0794C" stroke-width="1.4"/>
             <!-- 三つの要素が集まる先に、にーみんの顔（新見市配布の展開デザイン36番）。明るい円の台紙に載せる -->
+            <g data-show="1.85">
             <circle cx="446" cy="118" r="38" fill="#E6E2D8"/>
             <image href="photo/niimin-face.png" x="414" y="90" width="64" height="57"/>
+            </g>
+            <circle class="fp-ping" data-t="1.85" cx="446" cy="118" r="5" fill="none" stroke="#E0794C" stroke-width="1.2" opacity="0"/>
+            <g data-lit="2.1">
             <text class="s-key svg-fine" x="560" y="112" font-size="19" text-anchor="middle" fill="#E6E2D8">にーみん</text>
+            </g>
+            <g data-lit="2.25">
             <text class="s-t svg-fine" x="559" y="136" font-size="10.5" text-anchor="middle" fill="#E0794C">新見市マスコットキャラクター</text>
+            </g>
 
             <g class="s-t svg-fine" font-size="11" fill="#5B7B82">
-              <text x="660" y="86">2月13日生まれ</text>
-              <text x="660" y="106">（に・い・み）</text>
-              <text x="660" y="140">人気投票 801票</text>
-              <text x="660" y="160">で最優秀賞</text>
+              <text data-lit="2.6" x="660" y="86">2月13日生まれ</text>
+              <text data-lit="2.6" x="660" y="106">（に・い・み）</text>
+              <text data-lit="2.8" x="660" y="140">人気投票 801票</text>
+              <text data-lit="2.8" x="660" y="160">で最優秀賞</text>
             </g>
 
             <!-- スマホ用のまとめラベル -->
             <g class="svg-coarse s-key" font-size="26">
-              <text x="36" y="62">ピオーネ</text>
-              <text x="36" y="130">千屋牛</text>
-              <text x="30" y="198">アテツマンサク</text>
+              <text data-lit="0.3" x="36" y="62">ピオーネ</text>
+              <text data-lit="0.55" x="36" y="130">千屋牛</text>
+              <text data-lit="0.8" x="30" y="198">アテツマンサク</text>
+            </g>
+            <g class="svg-coarse s-key" data-lit="2.1">
               <text x="562" y="128" font-size="28" text-anchor="middle" fill="#E6E2D8">にーみん</text>
             </g>
           </svg>
+
+          <div class="fp__bar" role="group" aria-label="図8の再生">
+            <button type="button" class="fp__btn" hidden>再生</button>
+            <div class="fp__scale" style="--n:2">
+              <span class="fp__track" aria-hidden="true"><i class="fp__fill"></i><i class="fp__head"></i></span>
+              <button type="button" class="fp__stop is-on" tabindex="-1" aria-label="三つの要素のところから再生">三つの要素</button>
+              <button type="button" class="fp__stop is-on is-now" tabindex="-1" aria-label="にーみんのところから再生">にーみん</button>
+            </div>
+          </div>
+
           <figcaption class="figcap"><span><b>図 8</b> — にーみんの設定の分解。</span><span>出典：新見市公式</span></figcaption>
         </figure>
 
@@ -2954,7 +2973,7 @@ body.hl-note .obj-block{opacity:.18}
 })();
 
 /* ========================================================
-   動く図（位置図・図1〜図7）
+   動く図（位置図・図1〜図8）
    どの図も、見た目は「再生位置 t（秒）」だけで決まる（draw(t)）。
    再生の仕組み（画面に入ったら一度だけ再生・外れたら止める・
    ボタンと目盛り）は共通にして、図ごとに draw だけを書く。
@@ -3473,6 +3492,15 @@ body.hl-note .obj-block{opacity:.18}
     }
     player(fig, { name: '図6', end: 7.5, reach: [0.40, 1.95, 2.40, 3.35, 5.35], seek: [0, 1.60, 2.30, 3.20, 5.20], draw: draw });
   })();
+
+  /* ======== 図8：三つの要素が順に現れ、線が集まって、にーみんが現れる ======== */
+  (function(){
+    var fig = document.getElementById('f8r');
+    if (!fig) return;
+    var P = parts(fig.querySelector('svg'));
+    player(fig, { name: '図8', end: 3.3, reach: [0.3, 1.85], seek: [0, 1.6], draw: function(t){ drawParts(P, t); } });
+  })();
+  /* ======== 図8ここまで ======== */
 
   /* ======== 図4・図7：時代に沿って左から右へ描いていく ======== */
   /* グラフ部分の切り抜きの幅を広げて左から見せる。先頭には縦の線と、上の線をたどる点が付く */
