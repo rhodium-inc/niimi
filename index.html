@@ -358,6 +358,13 @@ body.hl-note .obj-block{opacity:.18}
    なめらかに動かない。止まったら（is-playing が外れたら）滑らかな描き方に戻る */
 .locatormap.is-playing .lm-map *{shape-rendering:optimizeSpeed}
 .locatormap .lm-l,.locatormap .lm-pl{paint-order:stroke; stroke:#0B1014; stroke-width:3px; stroke-linejoin:round}
+/* スマホではピンの名前を出さず、点を押しやすい大きさにする（押すと名前が出る） */
+@media (max-width:640px){
+  .locatormap .lm-pr{r:14px; stroke-width:4.5px}
+  .locatormap .lm-pr[stroke-dasharray]{stroke-dasharray:7 6}
+  .locatormap .lm-pd{r:6px}
+  .locatormap .lm-tip text{font-family:var(--sans)}
+}
 .locatormap .lm-sea{letter-spacing:.4em; font-style:normal}
 @media (max-width:640px){ .locatormap .lm-l[data-size]{font-size:38px} }
 /* 位置図ここまで */
@@ -838,22 +845,23 @@ body.hl-note .obj-block{opacity:.18}
 <circle class="fp-ping" data-t="6.45" cx="405.44" cy="361.46" r="5" fill="none" stroke="#E6E2D8" stroke-width="1.2" opacity="0"/>
 <circle data-show="6.40" cx="405.44" cy="361.46" r="4.2" fill="#E6E2D8"/>
 <g class="lm-pins">
-<g class="lm-pin" data-t="6.4" transform="translate(0,0)" opacity="1"><circle cx="696.81" cy="542.33" r="5" fill="#0B1014" stroke="#E6E2D8" stroke-width="1.4"/><circle cx="696.81" cy="542.33" r="2" fill="#E6E2D8"/><text class="s-t svg-fine lm-pl" x="705.81" y="546.33" font-size="13" text-anchor="start">井倉洞・井倉峡</text></g>
-<g class="lm-pin" data-t="6.49" transform="translate(0,0)" opacity="1"><circle cx="763.31" cy="480.96" r="5" fill="#0B1014" stroke="#E6E2D8" stroke-width="1.4"/><circle cx="763.31" cy="480.96" r="2" fill="#E6E2D8"/><text class="s-t svg-fine lm-pl" x="772.31" y="484.96" font-size="13" text-anchor="start">満奇洞</text></g>
-<g class="lm-pin" data-t="6.58" transform="translate(0,0)" opacity="1"><circle cx="736.69" cy="526.96" r="5" fill="#0B1014" stroke="#E6E2D8" stroke-width="1.4"/><circle cx="736.69" cy="526.96" r="2" fill="#E6E2D8"/><text class="s-t svg-fine lm-pl" x="745.69" y="530.96" font-size="13" text-anchor="start">羅生門</text></g>
-<g class="lm-pin" data-t="6.67" transform="translate(0,0)" opacity="1"><circle cx="502.56" cy="555.58" r="5" fill="#0B1014" stroke="#E6E2D8" stroke-width="1.4"/><circle cx="502.56" cy="555.58" r="2" fill="#E6E2D8"/><text class="s-t svg-fine lm-pl" x="511.56" y="567.58" font-size="13" text-anchor="start">鯉が窪湿原</text></g>
-<g class="lm-pin" data-t="6.76" transform="translate(0,0)" opacity="1"><circle cx="476.69" cy="536.46" r="5" fill="#0B1014" stroke="#E6E2D8" stroke-width="1.4"/><circle cx="476.69" cy="536.46" r="2" fill="#E6E2D8"/><text class="s-t svg-fine lm-pl" x="467.69" y="532.46" font-size="13" text-anchor="end">道の駅 鯉が窪</text></g>
-<g class="lm-pin" data-t="6.85" transform="translate(0,0)" opacity="1"><circle cx="712.81" cy="334.33" r="5" fill="#0B1014" stroke="#E6E2D8" stroke-width="1.4"/><circle cx="712.81" cy="334.33" r="2" fill="#E6E2D8"/><text class="s-t svg-fine lm-pl" x="721.81" y="338.33" font-size="13" text-anchor="start">大佐山</text></g>
-<g class="lm-pin" data-t="6.94" transform="translate(0,0)" opacity="1"><circle cx="706.56" cy="592.46" r="5" fill="#0B1014" stroke="#E6E2D8" stroke-width="1.4"/><circle cx="706.56" cy="592.46" r="2" fill="#E6E2D8"/><text class="s-t svg-fine lm-pl" x="715.56" y="596.46" font-size="13" text-anchor="start">済渡寺・白龍門</text></g>
-<g class="lm-pin" data-t="7.03" transform="translate(0,0)" opacity="1"><circle cx="566.31" cy="207.21" r="5" fill="#0B1014" stroke="#E6E2D8" stroke-width="1.4"/><circle cx="566.31" cy="207.21" r="2" fill="#E6E2D8"/><text class="s-t svg-fine lm-pl" x="575.31" y="211.21" font-size="13" text-anchor="start">いぶきの里</text></g>
-<g class="lm-pin" data-t="7.12" transform="translate(0,0)" opacity="1"><circle cx="491.94" cy="329.83" r="5" fill="#0B1014" stroke="#E6E2D8" stroke-width="1.4"/><circle cx="491.94" cy="329.83" r="2" fill="#E6E2D8"/><text class="s-t svg-fine lm-pl" x="500.94" y="333.83" font-size="13" text-anchor="start">神郷温泉</text></g>
-<g class="lm-pin" data-t="7.21" transform="translate(0,0)" opacity="1"><circle cx="641.56" cy="318.83" r="5" fill="#0B1014" stroke="#E6E2D8" stroke-width="1.4"/><circle cx="641.56" cy="318.83" r="2" fill="#E6E2D8"/><text class="s-t svg-fine lm-pl" x="650.56" y="322.83" font-size="13" text-anchor="start">鳴滝</text></g>
-<g class="lm-pin" data-t="7.3" transform="translate(0,0)" opacity="1"><circle cx="619.06" cy="459.21" r="5" fill="#0B1014" stroke="#E6E2D8" stroke-width="1.4"/><circle cx="619.06" cy="459.21" r="2" fill="#E6E2D8"/><text class="s-t svg-fine lm-pl" x="610.06" y="463.21" font-size="13" text-anchor="end">新見駅</text></g>
-<g class="lm-pin" data-t="7.39" transform="translate(0,0)" opacity="1"><circle cx="672.56" cy="498.96" r="5" fill="#0B1014" stroke="#E6E2D8" stroke-width="1.4"/><circle cx="672.56" cy="498.96" r="2" fill="#E6E2D8"/><text class="s-t svg-fine lm-pl" x="681.56" y="506.96" font-size="13" text-anchor="start">チョウザメ（位置は大体）</text></g>
-<g class="lm-pin" data-t="7.48" transform="translate(0,0)" opacity="1"><circle cx="631.44" cy="464.71" r="5" fill="#0B1014" stroke="#E6E2D8" stroke-width="1.4" stroke-dasharray="2.4 2"/><text class="s-t svg-fine lm-pl" x="640.44" y="456.71" font-size="13" text-anchor="start">御殿町・船川八幡宮</text></g>
-<g class="lm-pin" data-t="7.57" transform="translate(0,0)" opacity="1"><circle cx="631.94" cy="488.71" r="5" fill="#0B1014" stroke="#E6E2D8" stroke-width="1.4" stroke-dasharray="2.4 2"/><text class="s-t svg-fine lm-pl" x="622.94" y="496.71" font-size="13" text-anchor="end">たたら製鉄体験（位置は大体）</text></g>
-<g class="lm-pin" data-t="7.66" transform="translate(0,0)" opacity="1"><circle cx="539.94" cy="459.83" r="5" fill="#0B1014" stroke="#E6E2D8" stroke-width="1.4" stroke-dasharray="2.4 2"/><text class="s-t svg-fine lm-pl" x="530.94" y="463.83" font-size="13" text-anchor="end">夢すき公園</text></g>
+<g class="lm-pin" data-t="6.4" data-name="井倉洞・井倉峡" data-xy="696.81,542.33" transform="translate(0,0)" opacity="1"><circle class="lm-pr" cx="696.81" cy="542.33" r="5" fill="#0B1014" stroke="#E6E2D8" stroke-width="1.4"/><circle class="lm-pd" cx="696.81" cy="542.33" r="2" fill="#E6E2D8"/><text class="s-t svg-fine lm-pl" x="705.81" y="546.33" font-size="13" text-anchor="start">井倉洞・井倉峡</text></g>
+<g class="lm-pin" data-t="6.49" data-name="満奇洞" data-xy="763.31,480.96" transform="translate(0,0)" opacity="1"><circle class="lm-pr" cx="763.31" cy="480.96" r="5" fill="#0B1014" stroke="#E6E2D8" stroke-width="1.4"/><circle class="lm-pd" cx="763.31" cy="480.96" r="2" fill="#E6E2D8"/><text class="s-t svg-fine lm-pl" x="772.31" y="484.96" font-size="13" text-anchor="start">満奇洞</text></g>
+<g class="lm-pin" data-t="6.58" data-name="羅生門" data-xy="736.69,526.96" transform="translate(0,0)" opacity="1"><circle class="lm-pr" cx="736.69" cy="526.96" r="5" fill="#0B1014" stroke="#E6E2D8" stroke-width="1.4"/><circle class="lm-pd" cx="736.69" cy="526.96" r="2" fill="#E6E2D8"/><text class="s-t svg-fine lm-pl" x="745.69" y="530.96" font-size="13" text-anchor="start">羅生門</text></g>
+<g class="lm-pin" data-t="6.67" data-name="鯉が窪湿原" data-xy="502.56,555.58" transform="translate(0,0)" opacity="1"><circle class="lm-pr" cx="502.56" cy="555.58" r="5" fill="#0B1014" stroke="#E6E2D8" stroke-width="1.4"/><circle class="lm-pd" cx="502.56" cy="555.58" r="2" fill="#E6E2D8"/><text class="s-t svg-fine lm-pl" x="511.56" y="567.58" font-size="13" text-anchor="start">鯉が窪湿原</text></g>
+<g class="lm-pin" data-t="6.76" data-name="道の駅 鯉が窪" data-xy="476.69,536.46" transform="translate(0,0)" opacity="1"><circle class="lm-pr" cx="476.69" cy="536.46" r="5" fill="#0B1014" stroke="#E6E2D8" stroke-width="1.4"/><circle class="lm-pd" cx="476.69" cy="536.46" r="2" fill="#E6E2D8"/><text class="s-t svg-fine lm-pl" x="467.69" y="532.46" font-size="13" text-anchor="end">道の駅 鯉が窪</text></g>
+<g class="lm-pin" data-t="6.85" data-name="大佐山" data-xy="712.81,334.33" transform="translate(0,0)" opacity="1"><circle class="lm-pr" cx="712.81" cy="334.33" r="5" fill="#0B1014" stroke="#E6E2D8" stroke-width="1.4"/><circle class="lm-pd" cx="712.81" cy="334.33" r="2" fill="#E6E2D8"/><text class="s-t svg-fine lm-pl" x="721.81" y="338.33" font-size="13" text-anchor="start">大佐山</text></g>
+<g class="lm-pin" data-t="6.94" data-name="済渡寺・白龍門" data-xy="706.56,592.46" transform="translate(0,0)" opacity="1"><circle class="lm-pr" cx="706.56" cy="592.46" r="5" fill="#0B1014" stroke="#E6E2D8" stroke-width="1.4"/><circle class="lm-pd" cx="706.56" cy="592.46" r="2" fill="#E6E2D8"/><text class="s-t svg-fine lm-pl" x="715.56" y="596.46" font-size="13" text-anchor="start">済渡寺・白龍門</text></g>
+<g class="lm-pin" data-t="7.03" data-name="いぶきの里" data-xy="566.31,207.21" transform="translate(0,0)" opacity="1"><circle class="lm-pr" cx="566.31" cy="207.21" r="5" fill="#0B1014" stroke="#E6E2D8" stroke-width="1.4"/><circle class="lm-pd" cx="566.31" cy="207.21" r="2" fill="#E6E2D8"/><text class="s-t svg-fine lm-pl" x="575.31" y="211.21" font-size="13" text-anchor="start">いぶきの里</text></g>
+<g class="lm-pin" data-t="7.12" data-name="神郷温泉" data-xy="491.94,329.83" transform="translate(0,0)" opacity="1"><circle class="lm-pr" cx="491.94" cy="329.83" r="5" fill="#0B1014" stroke="#E6E2D8" stroke-width="1.4"/><circle class="lm-pd" cx="491.94" cy="329.83" r="2" fill="#E6E2D8"/><text class="s-t svg-fine lm-pl" x="500.94" y="333.83" font-size="13" text-anchor="start">神郷温泉</text></g>
+<g class="lm-pin" data-t="7.21" data-name="鳴滝" data-xy="641.56,318.83" transform="translate(0,0)" opacity="1"><circle class="lm-pr" cx="641.56" cy="318.83" r="5" fill="#0B1014" stroke="#E6E2D8" stroke-width="1.4"/><circle class="lm-pd" cx="641.56" cy="318.83" r="2" fill="#E6E2D8"/><text class="s-t svg-fine lm-pl" x="650.56" y="322.83" font-size="13" text-anchor="start">鳴滝</text></g>
+<g class="lm-pin" data-t="7.3" data-name="新見駅" data-xy="619.06,459.21" transform="translate(0,0)" opacity="1"><circle class="lm-pr" cx="619.06" cy="459.21" r="5" fill="#0B1014" stroke="#E6E2D8" stroke-width="1.4"/><circle class="lm-pd" cx="619.06" cy="459.21" r="2" fill="#E6E2D8"/><text class="s-t svg-fine lm-pl" x="610.06" y="463.21" font-size="13" text-anchor="end">新見駅</text></g>
+<g class="lm-pin" data-t="7.39" data-name="チョウザメ（位置は大体）" data-xy="672.56,498.96" transform="translate(0,0)" opacity="1"><circle class="lm-pr" cx="672.56" cy="498.96" r="5" fill="#0B1014" stroke="#E6E2D8" stroke-width="1.4"/><circle class="lm-pd" cx="672.56" cy="498.96" r="2" fill="#E6E2D8"/><text class="s-t svg-fine lm-pl" x="681.56" y="506.96" font-size="13" text-anchor="start">チョウザメ（位置は大体）</text></g>
+<g class="lm-pin" data-t="7.48" data-name="御殿町・船川八幡宮" data-xy="631.44,464.71" transform="translate(0,0)" opacity="1"><circle class="lm-pr" cx="631.44" cy="464.71" r="5" fill="#0B1014" stroke="#E6E2D8" stroke-width="1.4" stroke-dasharray="2.4 2"/><text class="s-t svg-fine lm-pl" x="640.44" y="456.71" font-size="13" text-anchor="start">御殿町・船川八幡宮</text></g>
+<g class="lm-pin" data-t="7.57" data-name="たたら製鉄体験（位置は大体）" data-xy="631.94,488.71" transform="translate(0,0)" opacity="1"><circle class="lm-pr" cx="631.94" cy="488.71" r="5" fill="#0B1014" stroke="#E6E2D8" stroke-width="1.4" stroke-dasharray="2.4 2"/><text class="s-t svg-fine lm-pl" x="622.94" y="496.71" font-size="13" text-anchor="end">たたら製鉄体験（位置は大体）</text></g>
+<g class="lm-pin" data-t="7.66" data-name="夢すき公園" data-xy="539.94,459.83" transform="translate(0,0)" opacity="1"><circle class="lm-pr" cx="539.94" cy="459.83" r="5" fill="#0B1014" stroke="#E6E2D8" stroke-width="1.4" stroke-dasharray="2.4 2"/><text class="s-t svg-fine lm-pl" x="530.94" y="463.83" font-size="13" text-anchor="end">夢すき公園</text></g>
 <g class="lm-pin svg-fine" data-t="6.4" transform="translate(0,0)" opacity="1"><circle cx="30" cy="760" r="5" fill="#0B1014" stroke="#E6E2D8" stroke-width="1.4"/><circle cx="30" cy="760" r="2" fill="#E6E2D8"/><text class="s-t lm-pl" x="42" y="765" font-size="13">行った場所</text><circle cx="150" cy="760" r="5" fill="#0B1014" stroke="#E6E2D8" stroke-width="1.4" stroke-dasharray="2.4 2"/><text class="s-t lm-pl" x="162" y="765" font-size="13">まだ行っていない場所</text></g>
+<g class="lm-pin svg-coarse" data-t="6.4" transform="translate(0,0)" opacity="1"><text class="s-t lm-pl" x="24" y="774" font-size="32">ピンを押すと名前が出る</text></g>
 </g>
 <g class="lm-inset" data-k="0.093854,1059.515,145.231" opacity="1">
 <rect x="1002" y="18" width="180" height="180" fill="#0B1014" stroke="#5B7B82" stroke-opacity=".6"/>
@@ -861,6 +869,7 @@ body.hl-note .obj-block{opacity:.18}
 <path d="M1063.8 149.3l-0.3 0.1 -0.2 0 0.1 0.2 0.7 -0.2 0 0.3 -0.1 0.3 -0.2 0.1 0 0.2 -0.2 -0.2 -0.2 0.1 0.1 0.3 -0.3 0.2 0.1 0.2 -0.5 0 -0.4 -0.2 -0.2 0.1 0 0.3 -0.2 0 -0.4 -0.8 -0.1 0.1 -0.1 0.1 0.2 0.2 -0.3 0 0 -0.5 -0.2 0 0 0.2 -0.2 -0.2 -0.1 0.2 -0.4 0.1 -0.1 0.2 -0.2 0.1 -0.2 0 -0.4 -0.4 0.2 0.5 -0.4 0.1 0.1 -0.2 -0.3 0.1 0 -0.3 0 -0.6 -0.6 -0.8 0.2 -0.6 -0.2 0 -0.1 -0.4 0 -0.3 0.1 -0.7 -0.4 -0.4 0 -0.1 -0.3 -0.5 0.1 -0.3 -0.1 -0.2 0.2 -0.5 -0.5 -0.6 0.2 -0.1 0 -0.3 0.3 0.1 0.8 -0.3 -0.2 -0.6 0.1 -0.1 0.4 0.1 0.5 -0.2 0.1 0.1 -0.1 -0.5 0.5 -0.2 0.2 -1 1.5 0.4 0.3 0.2 0.1 0.4 0.3 0 0.1 -0.2 0 -0.2 0.6 -0.2 0 -0.3 0.7 -0.1 -0.1 0.3 0.2 0.1 0.6 0 0.4 0.3 0.1 0.2 -0.1 0.2 0.2 0.1 -0.1 0.3 0.1 0.3 0.4 -0.1 0.4 -0.3 0.2 0.2 0.3 -0.1 0.5 -0.5 0.2 0.1 -0.1 0.2 0 0.3 0.2 0.1 0 0.4 -0.4 0 -0.1 0.6 -0.3 0.1 0 0.4 -0.4 0.2 0.1 0.6 -0.2 0.2 0.3 0.4 -0.3 0.5 0 0.3 0.3 0.1 0.4 0.5 -0.2 0.4 0 0.1 -0.2 -0.1 -0.4 0.2 -0.1 -0.2 -0.5 0 0.2 0.1 -0.1 0 0.2 0.2 0.2 -0.1 0.1 0.1 -0.5 0.6 -0.2 -0.1 0.2 0.3 -0.1 0.1 -0.3 0 -0.3 0.3 -0.4 0.1 0 -0.3 -0.1 0.1 -0.4 -0.1z" fill="#E0794C" opacity=".85"/>
 <rect class="lm-vrect" x="1054.50" y="141.91" width="9.01" height="6.01" fill="none" stroke="#E6E2D8" stroke-width="1.2"/>
 </g>
+<g class="lm-tip" opacity="0" pointer-events="none"><rect rx="6" fill="#E6E2D8"/><text font-size="40" fill="#0B1014" text-anchor="middle"></text></g>
 </svg>
       <div class="fp__bar" role="group" aria-label="位置図の再生">
         <button type="button" class="fp__btn" hidden>再生</button>
@@ -3485,7 +3494,6 @@ body.hl-note .obj-block{opacity:.18}
     var inset = svg.querySelector('.lm-inset'), vr = svg.querySelector('.lm-vrect'), K = nums(inset, 'data-k');
     /* ピン：上から落ちてきて立つ */
     var pins = all(svg, '.lm-pin').map(function(el){ return { el: el, t: +el.getAttribute('data-t') }; });
-
     /* 2つの眺めのあいだは、どちらでも画面の同じ所に来る点を中心にして拡大する。
        倍率は対数で進めるので、寄る速さが一定に見える */
     function cam(t){
@@ -3549,5 +3557,49 @@ body.hl-note .obj-block{opacity:.18}
   /* ======== 位置図ここまで ======== */
 })();
 </script>
+<!-- 位置図のピンの名前 -->
+<script>
+/* ======== 位置図のピンの名前（動く図の仕組みの外。動きを減らす設定の人にも効く） ======== */
+(function(){
+  'use strict';
+  var svg = document.querySelector('#lmr svg');
+  if (!svg) return;
+  function all(root, sel){ return Array.prototype.slice.call(root.querySelectorAll(sel)); }
+  function attr(el, name, v){ el.setAttribute(name, v); }
+  function r2(v){ return Math.round(v * 100) / 100; }
+  function nums(el, name){ return el.getAttribute(name).split(',').map(Number); }
+  /* スマホ：押した場所に一番近いピン（画面上で28px以内）の名前を、そのそばに出す。ほかの場所を押すと消える */
+    var tip = svg.querySelector('.lm-tip'), tipRect = tip.querySelector('rect'), tipText = tip.querySelector('text');
+    var named = all(svg, '.lm-pin[data-name]').filter(function(el){ return el.getAttribute('data-name'); }).map(function(el){
+      var xy = nums(el, 'data-xy'); return { el: el, name: el.getAttribute('data-name'), x: xy[0], y: xy[1] };
+    });
+    svg.addEventListener('click', function(ev){
+      if (!window.matchMedia('(max-width:640px)').matches) return;
+      var m = svg.getScreenCTM(); if (!m) return;
+      var pt = svg.createSVGPoint(); pt.x = ev.clientX; pt.y = ev.clientY; pt = pt.matrixTransform(m.inverse());
+      /* 指のそばのピン（画面上で28px以内）を近い順に。一番近いものから12px以内にあるピンは、区別できないので全部の名前を出す */
+      var px = 1 / m.a, near = named.filter(function(p){ return +p.el.getAttribute('opacity') > 0.5; }).map(function(p){
+        return { p: p, d: Math.hypot(p.x - pt.x, p.y - pt.y) };
+      }).filter(function(o){ return o.d <= 28 * px; }).sort(function(a, b){ return a.d - b.d; });
+      if (!near.length){ attr(tip, 'opacity', 0); return; }
+      near = near.filter(function(o){ return o.d <= near[0].d + 12 * px; }).slice(0, 4);
+      while (tipText.firstChild) tipText.removeChild(tipText.firstChild);
+      var LH = 50, w = 0;
+      near.forEach(function(o, i){
+        var ts = document.createElementNS('http://www.w3.org/2000/svg', 'tspan');
+        ts.textContent = o.p.name; ts.setAttribute('dy', i ? LH : 0);
+        tipText.appendChild(ts);
+      });
+      w = tipText.getComputedTextLength ? Math.max.apply(null, Array.prototype.map.call(tipText.childNodes, function(t){ return t.getComputedTextLength(); })) + 36 : 200;
+      var h = 58 + LH * (near.length - 1), a = near[0].p;
+      var x = Math.max(w / 2 + 6, Math.min(1200 - w / 2 - 6, a.x)), top = a.y - 40 - h < 4 ? a.y + 44 : a.y - 40 - h;
+      Array.prototype.forEach.call(tipText.childNodes, function(t){ t.setAttribute('x', r2(x)); });
+      attr(tipText, 'x', r2(x)); attr(tipText, 'y', r2(top + 41));
+      attr(tipRect, 'x', r2(x - w / 2)); attr(tipRect, 'y', r2(top)); attr(tipRect, 'width', r2(w)); attr(tipRect, 'height', h);
+      attr(tip, 'opacity', 1);
+    });
+})();
+</script>
+<!-- 位置図のピンの名前ここまで -->
 </body>
 </html>
