@@ -94,7 +94,8 @@ img,svg{max-width:100%}
 /* ============================================================
    HERO
    ============================================================ */
-.hero{padding:104px 0 8px}
+/* 上の固定の帯はページの一番上では隠れているので、その分の余白は取らない */
+.hero{padding:56px 0 8px}
 .sheetmeta{
   font-family:var(--mono); font-size:10.5px; letter-spacing:.13em;
   color:var(--contour); display:flex; flex-wrap:wrap; gap:6px 18px;
@@ -589,7 +590,7 @@ body.hl-note .obj-block{opacity:.18}
 @media (max-width:640px){
   body{font-size:15px}
   .wrap{padding:0 16px}
-  .hero{padding:88px 0 4px}
+  .hero{padding:24px 0 4px}
   .sec{grid-template-columns:1fr; gap:0}
   .hero__where{padding-left:0}
   .sec__rail{margin-bottom:6px}
@@ -1162,6 +1163,7 @@ body.hl-note .obj-block{opacity:.18}
             <g class="svg-coarse s-key" font-size="40">
               <text data-lit="5.45" x="176" y="76" text-anchor="middle">台地</text>
               <text data-lit="4.3" x="470" y="166" text-anchor="middle">中腹</text>
+              <text data-lit="4.55" x="820" y="176" text-anchor="middle">中腹</text>
               <text data-lit="3.15" x="452" y="318" text-anchor="middle" fill="#7FA9B0">湧き水</text>
               <text data-lit="0.3" x="666" y="404" text-anchor="middle" fill="#8FB0B6">谷底</text>
             </g>
@@ -1335,7 +1337,11 @@ body.hl-note .obj-block{opacity:.18}
               <text data-lit="0.3" x="470" y="150" fill="#8FB0B6">石灰岩（ペルム系）</text>
             </g>
             <g class="svg-coarse s-key" font-size="26">
-              <text data-lit="3.4" x="200" y="60" >台地の下は空洞</text>
+              <text data-lit="1.6" x="86" y="72" text-anchor="middle" fill="#8FB0B6">ドリーネ</text><text data-lit="1.7" x="236" y="72" text-anchor="middle" fill="#8FB0B6">ドリーネ</text><text data-lit="1.8" x="410" y="72" text-anchor="middle" fill="#8FB0B6">ドリーネ</text>
+              <text data-lit="0.3" x="470" y="150" fill="#8FB0B6">石灰岩</text>
+              <text data-lit="3.4" x="120" y="178" fill="#7FA9B0">井倉洞・満奇洞</text>
+              <text data-lit="4.3" x="130" y="292" fill="#8FB0B6">今も水が流れる層</text>
+              <text data-lit="5" x="798" y="88" text-anchor="end" fill="#8FB0B6">削られる前の高さ</text>
               <text data-lit="5.5" x="716" y="230" text-anchor="middle" fill="#E0794C">鉱山</text>
             </g>
             <g class="s-t" font-size="12">
@@ -1550,6 +1556,12 @@ body.hl-note .obj-block{opacity:.18}
               <text data-lit=".4" x="10" y="40">山を崩す</text>
               <text data-lit="1.3" x="470" y="130" text-anchor="middle" fill="#7FA9B0">洗う</text>
               <text data-lit="4.4" x="680" y="110" text-anchor="middle">たたら</text>
+              <!-- スマホ用：パソコンの細かい文字を短くして、同じタイミングで出す -->
+              <text data-lit=".9" x="286" y="136" text-anchor="middle" font-size="24">水路</text>
+              <text data-lit="1.95" x="497" y="294" text-anchor="middle" font-size="24">砂鉄が沈む</text>
+              <text data-lit="3.6" x="604" y="182" text-anchor="middle" font-size="24" fill="#E0794C">砂鉄</text>
+              <text data-lit="4.6" x="680" y="236" text-anchor="middle" font-size="24">木炭</text>
+              <text data-lit="5.0" x="798" y="284" text-anchor="end" font-size="24" fill="#7FA9B0">川底が上がる</text>
             </g>
           </svg>
 
@@ -1652,6 +1664,7 @@ body.hl-note .obj-block{opacity:.18}
               <text data-lit="2.12" x="430" y="170" fill="#8C9E6B">人工林</text>
               <text x="62" y="236" text-anchor="middle" fill="#5B7B82">1950</text>
               <text x="700" y="236" text-anchor="middle" fill="#5B7B82">2020</text>
+              <text data-lit="0.97" x="341" y="30" text-anchor="middle" font-size="24" fill="#E0794C">拡大造林</text>
             </g>
           </svg>
           <div class="fp__bar" role="group" aria-label="図4の再生">
@@ -1809,7 +1822,12 @@ body.hl-note .obj-block{opacity:.18}
                 <text data-lit=".25" x="140" y="40" fill="#E0794C">伐る</text>
                 <text data-lit="2.36" x="364" y="98" text-anchor="middle">山土場</text>
                 <text data-lit="5.08" x="640" y="154" text-anchor="middle">中間土場</text>
-              </g>
+                <!-- スマホ用：パソコンの細かい文字を短くして、同じタイミングで出す -->
+              <text data-lit="1.65" x="248" y="136" font-size="24">作業道</text>
+              <text data-lit="3.25" x="480" y="172" text-anchor="middle" font-size="24">林道</text>
+              <text data-lit="5.08" x="640" y="124" text-anchor="middle" font-size="24">仕分け</text>
+              <text data-lit="6.2" x="762" y="224" text-anchor="end" font-size="24">市場へ</text>
+            </g>
             </svg>
 
             <!-- 再生の操作と、どこまで進んだかの目盛り。
@@ -1963,6 +1981,10 @@ body.hl-note .obj-block{opacity:.18}
               <text x="16" y="132" fill="#8C9E6B">草地</text>
               <text data-lit="1.95" x="469" y="200" text-anchor="middle">牛</text>
               <text data-lit="3.4" x="700" y="180" text-anchor="middle" fill="#7FA9B0">田</text>
+              <!-- スマホ用：パソコンの細かい文字を短くして、同じタイミングで出す -->
+              <text data-lit=".9" x="312" y="56" text-anchor="middle" font-size="24">刈る</text>
+              <text data-lit="2.7" x="566" y="160" text-anchor="middle" font-size="24">厩肥</text>
+              <text data-lit="5.7" x="628" y="98" text-anchor="middle" font-size="24">稲わら</text>
             </g>
           </svg>
 
@@ -2095,6 +2117,7 @@ body.hl-note .obj-block{opacity:.18}
             <g class="svg-coarse s-key" font-size="26" fill="#E0794C">
               <text data-lit="0.4" x="80" y="70">6.2万</text><text data-lit="4.3" x="700" y="150" text-anchor="end">2.5万</text>
               <text x="62" y="228" text-anchor="middle" fill="#5B7B82">1950</text><text x="756" y="228" text-anchor="middle" fill="#5B7B82">2025</text>
+              <text data-lit="3.16" x="552" y="116" text-anchor="end" font-size="24" fill="#8FB0B6">2005 合併</text>
             </g>
             <!-- 描いている先頭：縦の線と、上の線をたどる点（描き終えたら消える） -->
             <line class="fs-cur" x1="760" y1="30" x2="760" y2="200" stroke="#E6E2D8" stroke-width="1" opacity="0"/>
