@@ -423,6 +423,14 @@ body.hl-note .obj-block{opacity:.18}
 }
 .places__h i{display:inline-block; width:22px; height:1px; margin-right:12px; vertical-align:middle; background:var(--iron); font-style:normal}
 .place__n + .place__note{margin-top:6px}
+/* 場所の名前のリンク：点線の下線と小さな矢印だけにして、読み物の見た目を崩さない */
+/* 折れない塊（.nw）は下線を引き継がないので、塊にも同じ下線を引く。矢印には引かない */
+.place__a,.place__a .nw{
+  color:inherit; text-decoration:underline dotted 1px; text-underline-offset:5px;
+  text-decoration-color:rgba(224,121,76,.6);
+}
+.place__a i{display:inline-block; font-style:normal; font-size:.72em; margin-left:3px; color:var(--iron-hi); vertical-align:.2em}
+.place__a:hover,.place__a:focus-visible,.place__a:hover .nw,.place__a:focus-visible .nw{text-decoration-style:solid; text-decoration-color:var(--iron-hi)}
 .place--un .place__n{color:rgba(230,226,216,.5)}
 .place--un .place__t{color:rgba(230,226,216,.36)}
 
@@ -2222,7 +2230,7 @@ body.hl-note .obj-block{opacity:.18}
           <div class="place">
             <span class="place__m" aria-hidden="true"></span>
             <div>
-              <h3 class="place__n">井倉洞・井倉峡 <small>石灰岩の台地</small></h3>
+              <h3 class="place__n"><a class="place__a" href="https://www.city.niimi.okayama.jp/kanko/spot/spot_detail/index/79.html" target="_blank" rel="noopener">井倉洞・井倉<span class="nw">峡<i aria-hidden="true">↗</i></span></a> <small>石灰岩の台地</small></h3>
               <p class="place__t">全長1,200mの鍾乳洞。1957年ごろ、大理石の採掘調査の最中に見つかり、1959年から公開された。洞内に高さ50mの「地軸の滝」。岡山県指定天然記念物。<b style="font-weight:600">掘って売るための調査が、観光地を見つけた</b>という順序が、この土地らしい。</p>
               <p class="place__note">夏でも中は涼しくて快適だった。場所によっては寒いくらい。</p>
             </div>
@@ -2230,7 +2238,7 @@ body.hl-note .obj-block{opacity:.18}
           <div class="place">
             <span class="place__m" aria-hidden="true"></span>
             <div>
-              <h3 class="place__n">満奇洞 <small>石灰岩の台地</small></h3>
+              <h3 class="place__n"><a class="place__a" href="https://www.city.niimi.okayama.jp/kanko/spot/spot_detail/index/77.html" target="_blank" rel="noopener"><span class="nw">満奇洞<i aria-hidden="true">↗</i></span></a> <small>石灰岩の台地</small></h3>
               <p class="place__t">全長約450m。もとは地名の「槇（まき）」から槇の穴と呼ばれていた。1929年に与謝野鉄幹・晶子夫妻が訪れ、「奇に満ちた洞」と詠んだことから満奇洞になった。</p>
               <p class="place__note">貧弱な私は上り坂の上にある入り口にたどり着くのが少々大変だった。</p>
             </div>
@@ -2238,7 +2246,7 @@ body.hl-note .obj-block{opacity:.18}
           <div class="place">
             <span class="place__m" aria-hidden="true"></span>
             <div>
-              <h3 class="place__n">羅生門 <small>石灰岩の台地</small></h3>
+              <h3 class="place__n"><a class="place__a" href="https://www.city.niimi.okayama.jp/kanko/spot/spot_detail/index/78.html" target="_blank" rel="noopener"><span class="nw">羅生門<i aria-hidden="true">↗</i></span></a> <small>石灰岩の台地</small></h3>
               <p class="place__t">1930年に国の天然記念物、2007年に日本の地質百選。陥没したドリーネ群にできた高さ40mの巨大な天然橋で、第一門から第四門まである。<b style="font-weight:600">鍾乳洞の天井が崩れ、残った部分が橋として立っている</b>。地下の空洞が地表に露出した現場そのもの。</p>
               <p class="place__note">想像していたよりも立派だった。周辺の散歩道も風情あり。</p>
             </div>
@@ -2254,7 +2262,7 @@ body.hl-note .obj-block{opacity:.18}
           <div class="place">
             <span class="place__m" aria-hidden="true"></span>
             <div>
-              <h3 class="place__n">鯉が窪湿原 <small>山と水</small></h3>
+              <h3 class="place__n"><a class="place__a" href="https://www.city.niimi.okayama.jp/kanko/spot/spot_detail/index/82.html" target="_blank" rel="noopener"><span class="nw">鯉が窪湿原<i aria-hidden="true">↗</i></span></a> <small>山と水</small></h3>
               <p class="place__t">哲西町矢田、標高約550m。国指定天然記念物で「西の尾瀬」と呼ばれる。北方系・大陸系の遺存植物を含む300種以上の動植物。オグラセンノウ、ビッチュウフウロなど。一周およそ60分。</p>
               <p class="place__note">名前の通り池に鯉がいた。餌をあげた。週末に行ったがほとんど人がおらず。季節によっては花が咲きほこっていそうだが、行ったときはあいにく。ゆっくり散歩するのにお勧め。</p>
             </div>
@@ -2262,7 +2270,7 @@ body.hl-note .obj-block{opacity:.18}
           <div class="place">
             <span class="place__m" aria-hidden="true"></span>
             <div>
-              <h3 class="place__n">大佐山 <small>山と水</small></h3>
+              <h3 class="place__n"><a class="place__a" href="https://www.city.niimi.okayama.jp/kanko/spot/spot_detail/index/70.html" target="_blank" rel="noopener"><span class="nw">大佐山<i aria-hidden="true">↗</i></span></a> <small>山と水</small></h3>
               <p class="place__t">中腹にオートキャンプ場があり、ダム湖でカヌーができる。渓谷のシャワートレッキングなども。</p>
               <p class="place__note">ダム湖でカヌーに乗った。中州の島で自分たちで火打石で火をおこしインスタントコーヒー。何とも贅沢な時間だった。まっちゃんさん元気かな。</p>
             </div>
@@ -2270,7 +2278,7 @@ body.hl-note .obj-block{opacity:.18}
           <div class="place">
             <span class="place__m" aria-hidden="true"></span>
             <div>
-              <h3 class="place__n">済渡寺・白龍門 <small>町と歴史</small></h3>
+              <h3 class="place__n"><a class="place__a" href="https://saidouji.com/" target="_blank" rel="noopener">済渡寺・白龍<span class="nw">門<i aria-hidden="true">↗</i></span></a> <small>町と歴史</small></h3>
               <p class="place__t">78基の白い鳥居が全長86mにわたって並ぶ。弘法大師とともに唐から渡ってきた白龍に由来し、鳥居には桃の彫刻が入っている。白龍が唐から桃を持ち帰ったという伝承による。6〜7月はあじさい。</p>
               <p class="place__note">お寺に鳥居があるのは違和感があったが、「白龍門」という名前から鳥居ではなく門だということで納得した。友人からの裏話ではとある会社の会長が道楽で作ったものだとか。</p>
             </div>
@@ -2278,7 +2286,7 @@ body.hl-note .obj-block{opacity:.18}
           <div class="place">
             <span class="place__m" aria-hidden="true"></span>
             <div>
-              <h3 class="place__n">新見千屋温泉 いぶきの里／神郷温泉 <small>千屋牛</small></h3>
+              <h3 class="place__n"><a class="place__a" href="https://www.ibukinosato.co.jp/" target="_blank" rel="noopener">新見千屋温泉 いぶきの<span class="nw">里<i aria-hidden="true">↗</i></span></a>／<a class="place__a" href="https://shingo-onsen.com/" target="_blank" rel="noopener"><span class="nw">神郷温泉<i aria-hidden="true">↗</i></span></a> <small>千屋牛</small></h3>
               <p class="place__t">いぶきの里は千屋花見。単純アルカリ泉で、千屋牛が食べられる。徒歩圏にスキー場。所在地の「花見」は、市の最高峰・花見山（1,188m）と同じ地名。</p>
               <p class="place__note">露天風呂もあり本当に気持ちよかった。</p>
             </div>
@@ -2286,7 +2294,7 @@ body.hl-note .obj-block{opacity:.18}
           <div class="place">
             <span class="place__m" aria-hidden="true"></span>
             <div>
-              <h3 class="place__n">チョウザメ養殖・キャビア <small>石灰岩の台地</small></h3>
+              <h3 class="place__n"><a class="place__a" href="https://msfarm.co.jp/" target="_blank" rel="noopener">チョウザメ養殖・キャビ<span class="nw">ア<i aria-hidden="true">↗</i></span></a> <small>石灰岩の台地</small></h3>
               <p class="place__t">高梁川水系の清流とカルスト台地の地下水で、8〜10年かけて育てる。年産60〜80kg。石灰岩に濾された水が、海のない土地でキャビアを可能にしている。</p>
               <p class="place__note">ここはかなりお勧め。なんでこんな山奥でチョウザメ養殖？みたいな疑問から色々教えてくれる。キャビアも試食したし、逆にチョウザメにかじられたり。</p>
             </div>
@@ -2294,7 +2302,7 @@ body.hl-note .obj-block{opacity:.18}
           <div class="place">
             <span class="place__m" aria-hidden="true"></span>
             <div>
-              <h3 class="place__n">鳴滝（遠望） <small>山と水</small></h3>
+              <h3 class="place__n"><a class="place__a" href="https://www.city.niimi.okayama.jp/kanko/spot/spot_detail/index/76.html" target="_blank" rel="noopener"><span class="nw">鳴滝（遠望）<i aria-hidden="true">↗</i></span></a> <small>山と水</small></h3>
               <p class="place__t">三段、約30m。静かな日には2kmほど離れた麓の集落まで音が届いたことから「鳴滝」と呼ばれる。</p>
               <p class="place__note">近くまでは行っていない。</p>
             </div>
@@ -2302,7 +2310,7 @@ body.hl-note .obj-block{opacity:.18}
           <div class="place">
             <span class="place__m" aria-hidden="true"></span>
             <div>
-              <h3 class="place__n">御鋒神社（高梁市）</h3>
+              <h3 class="place__n"><a class="place__a" href="https://www.google.com/maps?cid=15014976250715583863" target="_blank" rel="noopener">御鋒神社（高梁市<span class="nw">）<i aria-hidden="true">↗</i></span></a></h3>
               <p class="place__t">川沿いの、こじんまりとした神社。大きな木がご神木として立っている。新見市の南隣、高梁市にある。</p>
               <p class="place__note">名前を確かめないまま立ち寄った。あとで友人に聞いて、高梁市の御鋒神社だと分かった。とにかく立派な木が印象深い。</p>
             </div>
@@ -2310,7 +2318,7 @@ body.hl-note .obj-block{opacity:.18}
           <div class="place">
             <span class="place__m" aria-hidden="true"></span>
             <div>
-              <h3 class="place__n">JR新見駅 <small>今の新見</small></h3>
+              <h3 class="place__n"><a class="place__a" href="https://eki.jr-odekake.net/top?id=0650414" target="_blank" rel="noopener"><span class="nw">JR新見駅<i aria-hidden="true">↗</i></span></a> <small>今の新見</small></h3>
               <p class="place__t">伯備線・姫新線・芸備線が集まる駅。</p>
               <p class="place__note">周辺にはお店はあまりない。A級グルメ押しの大きな看板が印象的。</p>
             </div>
@@ -2318,14 +2326,14 @@ body.hl-note .obj-block{opacity:.18}
           <div class="place">
             <span class="place__m" aria-hidden="true"></span>
             <div>
-              <h3 class="place__n">道の駅 鯉が窪 <small>千屋牛</small></h3>
+              <h3 class="place__n"><a class="place__a" href="https://koigakubo.jp/" target="_blank" rel="noopener">道の駅 鯉が<span class="nw">窪<i aria-hidden="true">↗</i></span></a> <small>千屋牛</small></h3>
               <p class="place__t">千屋牛の冷凍肉ほか特産品が買え、野菜市場が併設されている。</p>
             </div>
           </div>
           <div class="place">
             <span class="place__m" aria-hidden="true"></span>
             <div>
-              <h3 class="place__n">たまがきと祐清像 <small>新見庄</small></h3>
+              <h3 class="place__n"><a class="place__a" href="https://www.city.niimi.okayama.jp/kanko/spot/spot_detail/index/101.html" target="_blank" rel="noopener">たまがきと祐清<span class="nw">像<i aria-hidden="true">↗</i></span></a> <small>新見庄</small></h3>
               <p class="place__t">新見駅前の広場、駅を出てすぐ左手に立っている。五百年前にこの土地にいた二人の像で、友人の迎えを待つあいだ、名前を知らないままその近くに立っていた。この街でいちばん古い物語は、資料館ではなく駅前にある。</p>
             </div>
           </div>
@@ -2337,35 +2345,35 @@ body.hl-note .obj-block{opacity:.18}
           <div class="place">
             <span class="place__m" aria-hidden="true"></span>
             <div>
-              <h3 class="place__n">ミカミパレット新見店</h3>
+              <h3 class="place__n"><a class="place__a" href="https://www.google.com/maps?cid=1333928628780335430" target="_blank" rel="noopener">ミカミパレット新見<span class="nw">店<i aria-hidden="true">↗</i></span></a></h3>
               <p class="place__note">電車内に帽子を置き忘れ、ここで帽子を購入。</p>
             </div>
           </div>
           <div class="place">
             <span class="place__m" aria-hidden="true"></span>
             <div>
-              <h3 class="place__n">REST HOUSE タイム インター店</h3>
+              <h3 class="place__n"><a class="place__a" href="https://www.google.com/maps?cid=9280153700567885468" target="_blank" rel="noopener">REST HOUSE タイム インター<span class="nw">店<i aria-hidden="true">↗</i></span></a></h3>
               <p class="place__note">テイクアウトでサンドイッチ？のようなものを包んでもらって、帰りの新幹線で食べた思い出。</p>
             </div>
           </div>
           <div class="place">
             <span class="place__m" aria-hidden="true"></span>
             <div>
-              <h3 class="place__n">サンパーク 新見</h3>
+              <h3 class="place__n"><a class="place__a" href="https://www.google.com/maps?cid=15107717681262562685" target="_blank" rel="noopener">サンパーク 新<span class="nw">見<i aria-hidden="true">↗</i></span></a></h3>
               <p class="place__note">ここでバーベキューの食材を調達。</p>
             </div>
           </div>
           <div class="place">
             <span class="place__m" aria-hidden="true"></span>
             <div>
-              <h3 class="place__n">標</h3>
+              <h3 class="place__n"><a class="place__a" href="https://www.google.com/maps?cid=4705810938675747502" target="_blank" rel="noopener"><span class="nw">標<i aria-hidden="true">↗</i></span></a></h3>
               <p class="place__note">ここでお茶しながら友人の迎えを待った。</p>
             </div>
           </div>
           <div class="place">
             <span class="place__m" aria-hidden="true"></span>
             <div>
-              <h3 class="place__n">さつき屋菓子舗</h3>
+              <h3 class="place__n"><a class="place__a" href="https://www.google.com/maps?cid=2056203636625850279" target="_blank" rel="noopener">さつき屋菓子<span class="nw">舗<i aria-hidden="true">↗</i></span></a></h3>
               <p class="place__note">ここで土産物を購入。</p>
             </div>
           </div>
