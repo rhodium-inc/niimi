@@ -439,6 +439,9 @@ body.hl-note .obj-block{opacity:.18}
 .mascot{margin:6px 0 34px; max-width:300px}
 .mascot__card{background:#E6E2D8; padding:24px 28px 18px; line-height:0}
 .mascot__card img{display:block; width:100%; height:auto}
+/* 紹介動画（縦長）。押すまで読み込まない。表紙は動画の1コマ */
+.pv{margin:34px 0 0; max-width:340px}
+.pv video{display:block; width:100%; height:auto; aspect-ratio:9/16; background:#000; border:1px solid var(--rule)}
 .foods{
   display:grid; gap:1px; margin:0 0 30px;
   grid-template-columns:repeat(2,minmax(0,1fr));
@@ -2653,6 +2656,14 @@ body.hl-note .obj-block{opacity:.18}
             <p>ただ3回も行くと色々面白いものが見えてくる。</p>
             <p>次に行くのが楽しみだ。</p>
           </aside>
+
+          <figure class="pv">
+            <video controls playsinline preload="none" poster="video/niimi-pv.jpg" width="1080" height="1920"
+                   aria-label="新見という土地の紹介動画。位置図で新見市へ寄り、井倉洞・羅生門・井倉峡・チョウザメ養殖・山土場・いぶきの里の写真と、にーみんが続く">
+              <source src="video/niimi-pv.mp4" type="video/mp4">
+            </video>
+            <figcaption class="figcap"><span><b>動画</b> — 新見という土地（約24秒・音なし）</span><span>にーみん：新見市マスコットキャラクター</span></figcaption>
+          </figure>
         </div>
       </div>
     </section>
