@@ -435,13 +435,17 @@ body.hl-note .obj-block{opacity:.18}
 .place--un .place__t{color:rgba(230,226,216,.36)}
 
 /* ---------- 第2部：食 ---------- */
+/* 紹介動画（縦長）。押すまで読み込まない。表紙は動画の1コマ */
+.pv{margin:34px 0 0; max-width:340px}
+.pv video{display:block; width:100%; height:auto; aspect-ratio:9/16; background:#000; border:1px solid var(--rule)}
+/* にーみんの公式の絵と、3Dにしたもの（4秒で繰り返す動き）を並べる。スマホでは縦に並ぶ */
+.mascots{display:flex; flex-wrap:wrap; gap:20px 24px; margin:6px 0 34px}
+.mascots .mascot{margin:0; flex:1 1 240px}
+.mascot__card video{display:block; width:100%; height:auto; aspect-ratio:4/5}
 /* にーみんの絵：濃い紫なので、暗い地に直接置かず明るい台紙に載せる（絵そのものは加工しない） */
 .mascot{margin:6px 0 34px; max-width:300px}
 .mascot__card{background:#E6E2D8; padding:24px 28px 18px; line-height:0}
 .mascot__card img{display:block; width:100%; height:auto}
-/* 紹介動画（縦長）。押すまで読み込まない。表紙は動画の1コマ */
-.pv{margin:34px 0 0; max-width:340px}
-.pv video{display:block; width:100%; height:auto; aspect-ratio:9/16; background:#000; border:1px solid var(--rule)}
 .foods{
   display:grid; gap:1px; margin:0 0 30px;
   grid-template-columns:repeat(2,minmax(0,1fr));
@@ -2563,11 +2567,18 @@ body.hl-note .obj-block{opacity:.18}
           <p class="dek">ここまでの話が、一体の牛に全部入っていた。</p>
         </header>
 
+        <div class="mascots">
         <figure class="mascot">
           <div class="mascot__card"><img src="photo/niimin.png" width="520" height="651" loading="lazy" decoding="async"
                alt="新見市マスコットキャラクター「にーみん」。紫色の体の牛の子どもで、頭にピオーネの葉を載せている"></div>
           <figcaption class="figcap"><span><b>新見市マスコットキャラクター にーみん</b></span><span>画像：新見市</span></figcaption>
         </figure>
+        <figure class="mascot">
+          <div class="mascot__card"><video class="mascot__v" muted loop playsinline preload="none" poster="video/niimin-3d.jpg" width="600" height="750"
+               aria-label="3Dにしたにーみんが、片手を振りながら首をかしげる短い動き"><source src="video/niimin-3d.mp4" type="video/mp4"></video></div>
+          <figcaption class="figcap"><span><b>3Dにーみん（非公式）</b></span></figcaption>
+        </figure>
+        </div>
 
         <figure class="fig fp" id="f8r">
           <svg viewBox="0 0 800 230" role="img" aria-label="新見市のマスコットキャラクター「にーみん」の設定を分解した模式図。カルスト台地のピオーネ、山の草地の千屋牛、阿哲の名を持つアテツマンサクという三つの要素が、一体のキャラクターに統合されている。">
@@ -3731,5 +3742,19 @@ body.hl-note .obj-block{opacity:.18}
 })();
 </script>
 <!-- 位置図のピンの名前ここまで -->
+<script>
+/* ======== 3Dにしたにーみん：画面に入ったら繰り返し再生し、外れたら止める ========
+   動きを減らす設定の人には動かさない（表紙の止まった絵のまま） */
+(function(){
+  'use strict';
+  var v = document.querySelector('.mascot__v');
+  if (!v || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  function play(){ var p = v.play(); if (p && p.catch) p.catch(function(){}); }
+  if (!('IntersectionObserver' in window)){ play(); return; }
+  new IntersectionObserver(function(es){
+    es.forEach(function(e){ if (e.isIntersecting) play(); else v.pause(); });
+  }, { threshold: 0.3 }).observe(v);
+})();
+</script>
 </body>
 </html>
