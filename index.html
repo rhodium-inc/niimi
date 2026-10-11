@@ -354,6 +354,9 @@ body.hl-note .obj-block{opacity:.18}
 .locatormap{margin:46px 0 0}
 /* 位置図（動く地図）：線の太さは拡大しても画面の上で変えない */
 .locatormap svg{display:block; width:100%; height:auto; border:1px solid var(--rule)}
+/* 立体の地形の動画：地図（枠の内側）にぴったり重ねる。ふだんは見えず、新見市まで寄りきったら現れる */
+.locatormap .lm-stage{position:relative}
+.locatormap .lm-vid{position:absolute; left:1px; top:1px; width:calc(100% - 2px); height:calc(100% - 2px); object-fit:cover; opacity:0; pointer-events:none; background:#0B1014}
 .locatormap .lm-map path{vector-effect:non-scaling-stroke}
 /* 再生中だけ、地図のふちを滑らかにする処理を切る。複雑な形の滑らかな描き直しは1コマに60ミリ秒以上かかり、
    なめらかに動かない。止まったら（is-playing が外れたら）滑らかな描き方に戻る */
@@ -818,6 +821,7 @@ body.hl-note .obj-block{opacity:.18}
 
     <!-- ============ 位置図 ============ -->
     <figure class="locatormap fp" id="lmr">
+      <div class="lm-stage">
       <svg viewBox="0 0 1200 800" role="img" aria-label="岡山県新見市の位置を示す地図。日本全体から中国地方、岡山県、新見市へと寄っていく。新見市は岡山県の北西の端にあり、北は鳥取県、西は広島県と接していて、三県の境は三国山で一点に会う。東は真庭市、南は高梁市。" data-views="[[346.1251, -396.6914, 0.4395], [-36.4342, 20.7968, 2.4864], [30.9691, 14.4439, 5.6604], [-5.4651, -3.3365, 12.5]]">
 <rect width="1200" height="800" fill="#0B1014"/>
 <g class="lm-map" transform="matrix(12.50000,0,0,12.50000,668.31,441.71)">
@@ -894,21 +898,24 @@ body.hl-note .obj-block{opacity:.18}
 </g>
 <g class="lm-tip" opacity="0" pointer-events="none"><rect rx="6" fill="#E6E2D8"/><text font-size="40" fill="#0B1014" text-anchor="middle"></text></g>
 </svg>
+      <video class="lm-vid" muted playsinline preload="none" aria-hidden="true" data-src-pc="video/terrain-pc.mp4" data-src-sp="video/terrain-sp.mp4"></video>
+      </div>
       <div class="fp__bar" role="group" aria-label="位置図の再生">
         <button type="button" class="fp__btn" hidden>再生</button>
-        <div class="fp__scale" style="--n:5">
+        <div class="fp__scale" style="--n:6">
           <span class="fp__track" aria-hidden="true"><i class="fp__fill"></i><i class="fp__head"></i></span>
           <button type="button" class="fp__stop is-on" tabindex="-1" aria-label="日本全体から再生">日本</button>
           <button type="button" class="fp__stop is-on" tabindex="-1" aria-label="中国地方から再生">中国地方</button>
           <button type="button" class="fp__stop is-on" tabindex="-1" aria-label="岡山県から再生">岡山県</button>
           <button type="button" class="fp__stop is-on" tabindex="-1" aria-label="新見市から再生">新見市</button>
-          <button type="button" class="fp__stop is-on is-now" tabindex="-1" aria-label="場所から再生">場所</button>
+          <button type="button" class="fp__stop is-on" tabindex="-1" aria-label="場所から再生">場所</button>
+          <button type="button" class="fp__stop is-on is-now" tabindex="-1" aria-label="新見駅のまわりから再生">駅のまわり</button>
         </div>
       </div>
       <figcaption class="figcap">
         <span><b>位置</b> — 新見市は岡山県の北西端にある。</span>
-        <span>ピン：実線＝行った場所、破線＝まだ行っていない場所（下の「歩く」の節）</span>
-        <span>出典：「国土数値情報（行政区域データ）」（国土交通省）を加工して作成</span>
+        <span>最後は新見の地形を立体にして見せる（起伏は2.6倍に強調）。ピンの柱：白＝行った場所、輪＝まだ行っていない場所、黄＝立ち寄ったところ（下の「歩く」の節）</span>
+        <span>出典：「国土数値情報（行政区域データ）」（国土交通省）、国土地理院の標高タイルを加工して作成。道路：© OpenStreetMap contributors</span>
       </figcaption>
     </figure>
 
@@ -3635,6 +3642,36 @@ body.hl-note .obj-block{opacity:.18}
     var inset = svg.querySelector('.lm-inset'), vr = svg.querySelector('.lm-vrect'), K = nums(inset, 'data-k');
     /* ピン：上から落ちてきて立つ */
     var pins = all(svg, '.lm-pin').map(function(el){ return { el: el, t: +el.getAttribute('data-t') }; });
+    /* 立体の地形の動画：再生が始まったら読み込み（スマホは名前の大きい版）、6.12 秒から地図に重ねて流す。
+       止める・途中から再生する、は地図の再生に合わせる。読み込めなかったら地図とピンのまま */
+    var vid = fig.querySelector('.lm-vid'), VT = 6.12, vReady = false, vFail = false, vAsked = false;
+    function loadVid(){
+      if (vAsked || !vid) return; vAsked = true;
+      vid.muted = true;
+      vid.addEventListener('canplay', function(){ vReady = true; });
+      vid.addEventListener('error', function(){ vFail = true; vid.style.opacity = 0; });
+      vid.src = vid.getAttribute(window.matchMedia('(max-width:640px)').matches ? 'data-src-sp' : 'data-src-pc');
+      vid.preload = 'auto'; vid.load();
+    }
+    function playing(){ return fig.classList.contains('is-playing'); }
+    /* 地図の再生が止まったら（画面から外れた・止めた・終わった）、動画も止める */
+    if (vid && 'MutationObserver' in window) new MutationObserver(function(){ if (!playing() && !vid.paused) vid.pause(); }).observe(fig, { attributes: true, attributeFilter: ['class'] });
+    function drawVid(t){
+      if (!vid) return;
+      if (t > 0.3) loadVid();
+      var want = t - VT;
+      if (want < 0 || !vReady || vFail){
+        vid.style.opacity = 0;
+        if (!vid.paused) vid.pause();
+        if (want < 0 && vReady && vid.currentTime > 0.05) vid.currentTime = 0;
+        return;
+      }
+      vid.style.opacity = r2(outCubic(seg(want, 0, 0.35)));
+      var dur = vid.duration || 20.4, goal = Math.min(want, dur - 0.04);
+      if (!playing() || Math.abs(vid.currentTime - goal) > 0.35) vid.currentTime = goal;
+      if (playing() && vid.paused && want < dur){ var pr = vid.play(); if (pr && pr.catch) pr.catch(function(){}); }
+      if (!playing() && !vid.paused) vid.pause();
+    }
     /* 2つの眺めのあいだは、どちらでも画面の同じ所に来る点を中心にして拡大する。
        倍率は対数で進めるので、寄る速さが一定に見える */
     function cam(t){
@@ -3691,9 +3728,10 @@ body.hl-note .obj-block{opacity:.18}
         attr(p.el, 'transform', 'translate(0,' + r2(-14 * (1 - outCubic(u))) + ')');
       });
       drawParts(P, t);
+      drawVid(t);
     }
     /* 位置図はページの冒頭にあり、見出しなどが順に現れる（1.82秒で終わる）。それと重ならないよう、1.9秒までは始めない */
-    player(fig, { name: '位置図', end: 8.3, reach: [0.35, 2.15, 4.0, 5.95, 6.4], seek: [0, 0.9, 2.9, 4.8, 6.2], draw: draw, notBefore: 1900 });
+    player(fig, { name: '位置図', end: 26.62, reach: [0.35, 2.15, 4.0, 5.95, 6.4, 22.62], seek: [0, 0.9, 2.9, 4.8, 6.2, 21.12], draw: draw, notBefore: 1900 });
   })();
   /* ======== 位置図ここまで ======== */
 })();
